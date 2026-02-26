@@ -28,6 +28,7 @@ class Holding(Base):
     symbol: Mapped[str] = mapped_column(String(20))
     quantity: Mapped[float] = mapped_column(Numeric(18, 8))
     avg_cost: Mapped[float] = mapped_column(Numeric(18, 4))
+    thesis: Mapped[str | None] = mapped_column(String(1000), nullable=True)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
     portfolio: Mapped["Portfolio"] = relationship(back_populates="holdings")

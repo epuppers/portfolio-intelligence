@@ -9,9 +9,17 @@ class HoldingOut(BaseModel):
     symbol: str
     quantity: float
     avg_cost: float
+    thesis: str | None = None
     updated_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class HoldingCreate(BaseModel):
+    symbol: str
+    quantity: float
+    avg_cost: float
+    thesis: str | None = None
 
 
 class PortfolioCreate(BaseModel):
